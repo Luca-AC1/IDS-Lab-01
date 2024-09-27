@@ -84,7 +84,7 @@ visitors %>%
 
 ## Question 4
 
-_What is the admission charge for the `"National Museum of Scotland"`?_
+_What is the admission charge for the `"National Museum of Scotland"`? Free
 
 ```{r Q4}
 visitors %>% filter(attraction == "National Museum of Scotland")
@@ -93,25 +93,25 @@ visitors %>% filter(attraction == "National Museum of Scotland")
 
 ### Exercise d.
 
-_Which attraction had exactly 565,772 visitors in 2022?_
+_Which attraction had exactly 565,772 visitors in 2022? Knowsley Safari and Knowsley Hall
 
 ```{r Ex_d}
-#visitors %>% filter(___ == ____)
+visitors %>% filter(n_2022 == "565772")
 ```
 
 ### Exercise e.
 
-_How many attraction had more than 1 million visitors in 2022?_
+_How many attraction had more than 1 million visitors in 2022? 22
 
 ```{r Ex_e}
-#visitors %>% 
-#  filter(____) %>%
-#  count()
+visitors %>% 
+  filter(n_2022 > 1000000) %>%
+  count()
 ```
 
 ## Question 5
 
-_How many `"O"`utside attractions are there in the `"Yorkshire and the Humber"` region that gives `"Members"` free admission, which had more than 100,000 visitors in 2022?_
+_How many `"O"`utside attractions are there in the `"Yorkshire and the Humber"` region that gives `"Members"` free admission, which had more than 100,000 visitors in 2022? 3
 
 ```{r Q5}
 visitors %>%
@@ -119,31 +119,30 @@ visitors %>%
     setting == "O",
     region == "Yorkshire and the Humber",
     admission == "Members",
-    n_2022 >= 100000
-    ) %>%
+    n_2022 >= 100000) %>%
   count()
 ```
 
 ### Exercise f.
 
-_How many attractions had between 50,000 and 100,000 visitors in 2022?_
+_How many attractions had between 50,000 and 100,000 visitors in 2022? 50
 
 ```{r Ex_f}
-#visitors %>% 
-#  ____(
-#    ______,
-#    ______ ) %>%
-#  count()
+visitors %>% 
+  filter(
+    n_2022 > 50000,
+    n_2022 < 100000) %>%
+  count()
 ```
 
 ### Exercise g.
 
-_How many regions have more than 50 tourist attraction in the data set? (Hint: You will need to tabulate the data before filtering.)_
+_How many regions have more than 50 tourist attraction in the data set? (Hint: You will need to tabulate the data before filtering.) 1 (Scotland)
 
 ```{r Ex_g}
-#visitors %>% 
-#  _____(region) %>%
-#  filter(______)
+visitors %>% 
+ count(region) %>%
+  filter(n > 50)
 ```
 
 
@@ -152,7 +151,7 @@ _How many regions have more than 50 tourist attraction in the data set? (Hint: Y
 
 ## Question 6
 
-_What are the mean and median visitor numbers in 2022 across all attractions?_
+_What are the mean and median visitor numbers in 2022 across all attractions? Mean is 351,942 and median is 184640
 
 ```{r Q6}
 visitors %>% 
