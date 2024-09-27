@@ -18,7 +18,7 @@ library(tidyverse)
 visitors <- read_csv("data/UK-visitor-numbers.csv")
 ```
 
-
+visitors %>% head(n = 10)
 
 # Wrangling Data
 
@@ -37,7 +37,7 @@ _Create a frequency table of the number of tourist attractions in the data set b
 ```{r Ex_a}
 # Delete the comment '#' symbol at the start of the next line and complete the code. 
 
-#visitors %>% count(_____)
+visitors %>% count(region)
 ```
 
 ### Exercise b.
@@ -47,7 +47,7 @@ _Create a frequency table by `admission` and `setting`._
 ```{r Ex_b}
 # Delete the comment '#' symbol at the start of the next line and complete the code.
 
-#visitors %>% count(_____, _____)
+visitors %>% count(admission, setting)
 ```
 
 
@@ -67,7 +67,7 @@ visitors %>% summarise_all(class)
 
 ## Question 3
 
-_Which attraction had the most number of visitors in 2022?_
+_Which attraction had the most number of visitors in 2022? The Crown Estate, Windsor Great Park
 
 ```{r Q3}
 visitors %>% arrange(desc(n_2022))
@@ -75,11 +75,11 @@ visitors %>% arrange(desc(n_2022))
 
 ### Exercise c.
 
-_What are the top 10 most visited attractions in 2021?_
+_What are the top 10 most visited attractions in 2021? The Crown Estate, Royal Botanic Gardens Kew, Natural History Museum, RHS Garden Wisley, The British Museum, Tate Modern, Somerset House, Science Museum, Jeskyns Community Woodland, V&A South Kensington
 ```{r Ex_c}
-#visitors %>% 
-#  arrange(____(____)) %>%
-#  head(n = ____)
+visitors %>% 
+  arrange(desc(n_2021)) %>%
+  head(n = 10)
 ```
 
 ## Question 4
