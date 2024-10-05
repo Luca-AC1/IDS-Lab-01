@@ -167,20 +167,20 @@ visitors %>%
 _Perform the same calculation for the 2021 admissions data._
 
 ```{r Ex_h}
-#visitors %>% 
-#  ______(
-#    __________,
-#    __________
-#  )
+visitors %>% 
+  summarise(
+    mean_2021 = mean(n_2021),
+    med_2021 = median(n_2021)
+  )
 ```
 
 All values in the output are `NA`!
 
 ### Exercise i.
 
-_What does `NA` stand for and why are you getting this as your answer to the previous question._
+_What does `NA` stand for and why are you getting this as your answer to the previous question. Not Applicable
 
-**Write your answer here**
+Not Applicable as some of the attractions have no data available for this heading.
 
 
 
